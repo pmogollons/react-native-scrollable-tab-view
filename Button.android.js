@@ -1,18 +1,19 @@
-const React = require('react');
-const ReactNative = require('react-native');
-const {
-  TouchableNativeFeedback,
+import React, { PureComponent } from 'react';
+import {
   View,
-} = ReactNative;
+  TouchableNativeFeedback
+} from 'react-native';
 
-const Button = (props) => {
-  return <TouchableNativeFeedback
-    delayPressIn={0}
-    background={TouchableNativeFeedback.SelectableBackground()} // eslint-disable-line new-cap
-    {...props}
-  >
-    {props.children}
-  </TouchableNativeFeedback>;
-};
 
-module.exports = Button;
+export default class Button extends PureComponent {
+  render() {
+    return (
+      <TouchableNativeFeedback
+        delayPressIn={ 0 }
+        background={ TouchableNativeFeedback.SelectableBackground() } // eslint-disable-line new-cap
+        { ...this.props }>
+        { this.props.children }
+      </TouchableNativeFeedback>
+    );
+  }
+}

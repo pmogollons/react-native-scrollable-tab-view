@@ -1,14 +1,16 @@
-const React = require('react');
-const ReactNative = require('react-native');
-const {
- TouchableOpacity,
+import React, { PureComponent } from 'react';
+import {
   View,
-} = ReactNative;
+  TouchableOpacity
+} from 'react-native';
 
-const Button = (props) => {
-  return <TouchableOpacity {...props}>
-    {props.children}
-  </TouchableOpacity>;
-};
 
-module.exports = Button;
+export default class Button extends PureComponent {
+  render() {
+    return (
+      <TouchableOpacity { ...this.props }>
+        { this.props.children }
+      </TouchableOpacity>
+    );
+  }
+}
